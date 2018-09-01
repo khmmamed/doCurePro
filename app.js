@@ -9,16 +9,11 @@ var express      = require('express'),
     favicon      = require('serve-favicon'),
     core         = require('./Core/core'),
     cookieParser = require('cookie-parser'),
-    session      = require('express-session'),
-    RedisStore   = require('connect-redis')(session), //session
+    session      = require('express-session')
     bodyParser   = require('body-parser'),
     passport     = require('passport'),
-    flash        = require('connect-flash'),
     config       = require('./config'),
-    _            = require('lodash'),
-    //csrf         = require('csurf'),
-    //less         = require('express-less'),
-    loader       = require('loader');
+    _            = require('lodash');
 
 
 
@@ -61,16 +56,11 @@ app.engine('js', require('express-react-views').createEngine());
 //app.engine('html', require('ejs-mate'));
 //app.locals._layoutFile = 'layout.html';
 
-//assets
-var assets = require('./assets.json');
-
 
 //define locals
 _.extend(app.locals,{
     config : config,
-    Loader : loader,
-    _ : _,
-    assets : assets
+    _ : _
 });
 
 
@@ -91,7 +81,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 require('./Core/pass')(passport);
-app.use(flash());
 //app.use(csrf({}));
 // error handler
 /*
