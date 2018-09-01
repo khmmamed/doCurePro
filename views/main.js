@@ -139,7 +139,7 @@ class Index extends Component {
 
 		else {
 			axios.get('/eLab/tests?test='+query)
-	           .then(response => { console.log(response.data)
+	           .then(response => { 
 	                this.setState({test : response.data, listed :  <Listing list= {this.state.test} fn={this.handleCheckedTest} bilan={this.state.Bilan}/> })
 	            })
 	           .catch(function (error) {

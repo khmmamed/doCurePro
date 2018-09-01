@@ -9,7 +9,8 @@ var express      = require('express'),
     favicon      = require('serve-favicon'),
     core         = require('./Core/core'),
     cookieParser = require('cookie-parser'),
-    session      = require('express-session')
+    session      = require('express-session'),
+    babelify     = require('express-babelify-middleware'),
     bodyParser   = require('body-parser'),
     passport     = require('passport'),
     config       = require('./config'),
@@ -20,11 +21,15 @@ var express      = require('express'),
 app.use('basedir', express.static(__dirname));
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/MPAPP", {
-        useMongoClient: true
-    })
-    .then(() => { console.log('MongoDB connected...')})
-    .catch(err => console.log(err));
+mongoose.set('useCreateIndex', true);
+var uri = "mongodb+srv://khmamed:Projetdeweb1@cluster0-lhitx.gcp.mongodb.net/mpapp?retryWrites=true";
+mongoose.connect(uri, { useNewUrlParser: true})
+        .then(() => { console.log('MongoDB connected...')})
+        .catch(err => console.log(err));
+
+
+
+
 
 // sync models and redirect dir
 var appPath = process.cwd();
@@ -34,9 +39,6 @@ core.walk(appPath + '/Modules', null, function (path) {
 app.use('/', express.static(__dirname + '/www')); // redirect root
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/css', express.static(__dirname + '/node_modules/react-table')); // redirect bootstrap JS
-app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
-app.use('/js', express.static(__dirname + '/node_modules/jquery-validation/dist')); // redirect JS jquery validation
-app.use('/js', express.static(__dirname + '/node_modules/jquery-typeahead/dist')); // redirect JS jquery validation
 app.use('/js', express.static(__dirname + '/public/js')); // redirect js public
 app.use('/js', express.static(__dirname + '/public/assets/js')); // redirect js public
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
@@ -45,6 +47,9 @@ app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/fonts')); 
 app.use('/fonts', express.static(__dirname + '/node_modules/public/fonts')); // redirect font public
 app.use('/img', express.static(__dirname + '/Assets/images')); // redirect img public
 //app.use('/css', less(__dirname + '/public/css'));
+
+app.use(     '/index.js'      ,babelify('views/main.js',{minify: true}))
+app.use(     '/admlab.js'     ,  babelify('views/adminApi/AdmLab.js',{minify: true }));
 
 //define views folder
 //app.set('views', path.join(__dirname, 'views/'));

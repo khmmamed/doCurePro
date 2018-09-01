@@ -14,7 +14,7 @@ const 	express		= require('express'),
     /**Pages**/
 router.get(     '/'               , (req, res, next)=>{ res.render('Layout.js',{title: 'eLab', page:'MedApp - Home', script: '/index.js'}) });
 router.get(     '/userMenu'       , (req, res, next)=>{ req.user ? res.send({user : req.user }) : res.send({user : '' } ) })
-router.get(     '/index.js'       , (req, res, next)=>{ next()},babelify('views/main.js',{minify: true}))
+//router.get(     '/index.js'       , (req, res, next)=>{ next()},babelify('views/main.js',{minify: true}))
 router.get(     '/eLab'           , (req, res, next)=>{ res.render('Layout.js',{title: 'eLab', page:'eLab home page', script: '/eLab.js'}) });
 router.get(     '/eLab.js'        , (req, res, next)=>{ next() },babelify('views/frontApi/eLab/eLab.js',{minify: true}));
 router.get(     '/Login'          , (req, res)=>{ res.render('Layout.js',{script: '/Login.js'})});
@@ -32,7 +32,7 @@ router.get(     '/eLab/tests'     , (res,req,next)=>{ next() } ,Lab.autoComplete
 
 
 //Admin Area
-router.get(     '/admlab.js'     ,  babelify('views/adminApi/AdmLab.js',{minify: true }));
+//router.get(     '/admlab.js'     ,  babelify('views/adminApi/AdmLab.js',{minify: true }));
 router.get(     '/:user'         ,  (req, res, next) => { res.render('Layout.js', {title: 'Administration', page : 'Admin Home page', script : '/admlab.js'}); next(); });
 
 //Organism Area
