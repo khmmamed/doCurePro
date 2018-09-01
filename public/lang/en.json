@@ -1,0 +1,8 @@
+{
+  "headers" : {
+      "direction" : "ltr"
+  },
+  "General" : {
+      "searchLabel": "Search for test"
+  }
+}

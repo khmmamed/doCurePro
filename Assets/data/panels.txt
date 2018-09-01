@@ -1,0 +1,111 @@
+Acute hepatitis panel This panel must include the following (80074): 
+
+		Hepatitis A antibody (HAAb), IgM antibody (86709) 
+		Hepatitis B core antibody (HBcAb), IgM antibody (86705) 
+		Hepatitis B surface antigen (HBsAg) (87340) 
+		Hepatitis C antibody (86803)
+
+Basic metabolic panel (Calcium, ionized) This panel must include the following (80047): 
+
+		Calcium, ionized (82330) 
+		Carbon dioxide (bicarbonate) (82374) 
+		Chloride (82435) 
+		Creatinine (82565) 
+		Glucose (82947) 
+		Potassium (84132) 
+		Sodium (84295) 
+		Urea Nitrogen (BUN) (84520
+
+Basic metabolic panel (Calcium, total) This panel must include the following (80048): 
+		
+		Calcium, total (82310) 
+		Carbon dioxide (bicarbonate) (82374) 
+		Chloride (82435) Creatinine (82565) 
+		Glucose (82947) Potassium (84132) 
+		Sodium (84295) 
+		Urea nitrogen (BUN) (84520)
+
+Comprehensive metabolic panel This panel must include the following (80053): 
+		
+		Albumin (82040) 
+		Bilirubin, total (82247) 
+		Calcium, total (82310) 
+		Carbon dioxide (bicarbonate) (82374) 
+		Chloride (82435) 
+		Creatinine (82565) 
+		Glucose (82947) 
+		Phosphatase, alkaline (84075) 
+		Potassium (84132) 
+		Protein, total (84155) 
+		Sodium (84295) 
+		Transferase, alanine amino (ALT) (SGPT) (84460) 
+		Transferase, aspartate amino (AST) (SGOT) (84450) 
+		Urea nitrogen (BUN) (84520)
+
+Electrolyte panel This panel must include the following (80051): 
+		
+		Carbon dioxide (bicarbonate) (82374) 
+		Chloride (82435) Potassium (84132) 
+		Sodium (84295)
+
+General health panel This panel must include the following (80050): 
+		
+		Comprehensive metabolic panel (80053) 
+		Blood count, complete (CBC), automated and automated differential WBC count (85025 or 85027 and 85004) 
+		OR Blood count, complete (CBC), automated (85027) 
+		and appropriate manual differential WBC count (85007 or 85009) 
+		Thyroid stimulating hormone (TSH) (84443)
+
+Hepatic function panel This panel must include the following (80076): 
+
+		Albumin (82040) 
+		Bilirubin, total (82247) 
+		Bilirubin, direct (82248) 
+		Phosphatase, alkaline (84075) 
+		Protein, total (84155) 
+		Transferase, alanine amino (ALT) (SGPT) (84460) 
+		Transferase, aspartate amino (AST) (SGOT) (84450)
+
+Lipid panel This panel must include the following (80061): 
+		
+		Cholesterol, serum, total (82465) 
+		Lipoprotein, direct measurement, high density cholesterol (HDL cholesterol) (83718) 
+		Triglycerides (84478)
+
+Obstetric panel (includes HIV testing) This panel must include the following (80081): 
+
+		Blood count, complete (CBC), and automated differential WBC count (85025 or 85027 and 85004) 
+		OR Blood count, complete (CBC), automated (85027) 
+		and appropriate manual differential WBC count (85007 or 85009) 
+		Hepatitis B surface antigen (HBsAg) (87340) 
+		HIV-1 antigen(s), with HIV-1 and HIV-2 antibodies, single result (87389) 
+		Antibody, rubella (86762) 
+		Syphilis test, non-treponemal antibody; qualitative (eg, VDRL, RPR, ART) (86592) 
+		Antibody screen, RBC, each serum technique (86850) 
+		Blood typing, ABO (86900) 
+		AND Blood typing, Rh (D) (86901)
+
+Obstetric panel This panel must include the following (80055): 
+
+		Blood count, complete (CBC), automated and automated differential WBC count (85025 or 85027 and 85004) 
+		OR Blood count, complete (CBC), automated (85027) 
+		and appropriate manual differential WBC count (85007 or 85009) 
+		Hepatitis B surface antigen (HBsAg) (87340) 
+		Antibody, rubella (86762) 
+		Syphilis test, non-treponemal antibody; qualitative (eg, VDRL, RPR, ART) (86592) 
+		Antibody screen, RBC, each serum technique (86850) 
+		Blood typing, ABO (86900) 
+		AND Blood typing, Rh (D) (86901)
+
+Renal function panel This panel must include the following (80069): 
+
+		Albumin (82040) 
+		Calcium, total (82310) 
+		Carbon dioxide (bicarbonate) (82374) 
+		Chloride (82435) 
+		Creatinine (82565) 
+		Glucose (82947) 
+		Phosphorus inorganic (phosphate) (84100) 
+		Potassium (84132) 
+		Sodium (84295) 
+		Urea nitrogen (BUN) (84520)

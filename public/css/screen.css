@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/******
+    import others css and less
+*******/
+@import "/css/font-awesome.min.css";
+@import "/css/bootstrap.min.css";
+@import "/css/bootstrap.min.css";
+@import "/css/font-awesome.min.css";
+@import "/css/components.min.css";
+/*****
+<link href="/css/mapp.css" rel="stylesheet" type="text/css" />
+                   
+
+    typography
+
+
+*****/
+
+/******
+	window html body
+*******/
+
+#MedApp:empty{
+		width: 100%;
+		height: 200px;
+		background-image: url('/img/general/loading.svg');
+		background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    background-position: center top; 
+	}
+
+
+
+/******
+	layout
+*******/
+#header-app{}
+#main{}
+#footer{}
