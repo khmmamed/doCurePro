@@ -35,14 +35,36 @@ test.findAllTestMatchQuery = (query, callback) => {
             callback(result);
         });
      },
+test.findAllTestMatchQueryOr = (query, callback) => {
+
+        Tests.find({$or : query}).exec(function (err, result) {
+
+            if(err) throw err;
+
+            if(!result) {
+
+                return "Sorry we don't find any test with this name";
+            }
+
+            callback(result);
+        });
+     },
+
+
 test.findTestByName = (name, callback) => {
 
         test.findOneTest({'name.en' : name}, callback);
      },
 test.findTestsByName = (name, callback) => {
 
-        test.findAllTestMatchQuery({'name.en' : name}, callback);
-     },
+    test.findAllTestMatchQuery({'name.en' : name}, callback);
+ },
+
+test.findTestsByNameFr = (name, callback) => {
+
+    test.findAllTestMatchQuery({'name.fr' : name}, callback);
+ },
+
 test.getOneFieldArray = (data, callback) => {
                 
         var field =[];
@@ -78,10 +100,16 @@ test.getTwoFieldsFromArray = (array, callback)=>{
      },
 test.searchTestsByName = (name, callback) => {
 
-        name = new RegExp(name, 'ig');
+    name = new RegExp(name, 'ig');
                 
-        test.findAllTestMatchQuery({'name.en' : name}, callback);
-     }
+    test.findAllTestMatchQuery({'name.en' : name}, callback);
+ }
+test.searchTestsByNameFr = (name, callback) => {
+
+    name = new RegExp(name, 'ig');
+                
+    test.findAllTestMatchQueryOr([{'name.fr' : name}, {'reference.Mnemonic' : name}], callback);
+ }
 
 
 module.exports = test;

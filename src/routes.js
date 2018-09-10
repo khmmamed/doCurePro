@@ -27,6 +27,7 @@ router.post(    '/Login'          , (req,res)=>{console.log(req.body)});
     /** API **/
 router.get(     '/users/:email'   , User.searchEmailEntry);
 router.get(     '/eLab/tests'     , (res,req,next)=>{ next() } ,Lab.autoCompleteSearchTest);
+router.get(     '/eLab/tests/fr'     , (res,req,next)=>{ next() } ,Lab.searchTestFrench);
 
 //SupAdmin Area
 

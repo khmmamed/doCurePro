@@ -28,13 +28,14 @@ const Listing = (props)=>(
 	<DefaultList>      		
         <div className="list-container">
             <ul>{props.list.map((data)=>
-                <ListItem key={data}>
+                <ListItem key={data.nameFr}>
                     <div className="list-icon-container">
-                        <input type="checkbox" value={data.test} onChange={props.fn} checked={isCheckedTest(props.bilan, data.test)}/>
+                        <input type="checkbox" value={data.bcode} name={data.nameFr} onChange={props.fn} checked={isCheckedTest(props.bilan, data.nameFr)}/>
                     </div>                            
-                    { typeof data.finance[0] ==='undefined' ? '' : <div className="list-datetime"> {Math.floor(data.finance[0].Bcode * 1.34)} MAD</div> }
+                    { typeof data.bcode ==='undefined' ? '' : <div className="list-datetime"> {Math.floor(data.bcode * 1.34)} MAD</div> }
                     <div className="list-item-content">
-                        <p>{data.test}</p>
+                    	<h3>{data.mnemonic}</h3>
+                        <p>{data.nameFr}</p>
                     </div>
                 </ListItem>                                                 
             )}</ul>
@@ -59,7 +60,7 @@ const TestPanel = (props)=>(
 		<Col sm={12} md={12}>
 			<LightPortlet>
 				<PortletTitle >
-					<Caption>Your Tests Panel</Caption>
+					<Caption>Votre Bilan</Caption>
 					<PortletActions>
 						<Link to={'/'}><i className="fa fa-arrow-left"></i></Link>
 					</PortletActions>
@@ -67,14 +68,16 @@ const TestPanel = (props)=>(
 				<PortletBody>
 					<TestsPanelList>
 						 <ul>{props.Bilan.map((data)=>
-						 		<li key={data}>
-						 			<div className="testname"> {data}</div>
+						 		<li key={data.name}>
+						 			<div className="testname"> {data.name}</div>
 						 			<div className="testoptions">
-						 				<i className="fa fa-times" data={data} onClick={props.delete}></i></div>
-						 			<div className="testprice"> 120 MAD</div>
+						 				<i className="fa fa-times" data={data.name} onClick={props.delete}></i></div>
+						 			<div className="testprice"> {Math.floor(data.bcode * 1.34)} MAD</div>
 						 		</li>
 						 	 )}
 						 </ul>
+						 <hr/>
+						 <div>Total : <span>{Math.floor(getTotalBilan(props.Bilan) * 1.34)} MAD</span></div>
 					</TestsPanelList>
 				</PortletBody>
 			</LightPortlet>
@@ -114,7 +117,8 @@ class Index extends Component {
 
             this.setState({NumOfTests : this.state.NumOfTests+1}) ;
 
-            this.state.Bilan[this.state.NumOfTests] = e.target.value;
+            this.state.Bilan[this.state.NumOfTests] = {name : e.target.name, bcode: e.target.value };
+
         } else {
 
         	for(let i=0; i<this.state.Bilan.length; i++){
@@ -138,9 +142,16 @@ class Index extends Component {
 		if(query.length<2) this.setState({test : [], listed : ''});
 
 		else {
-			axios.get('/eLab/tests?test='+query)
+			axios.get('/eLab/tests/fr?test='+query)
 	           .then(response => { 
-	                this.setState({test : response.data, listed :  <Listing list= {this.state.test} fn={this.handleCheckedTest} bilan={this.state.Bilan}/> })
+	           		
+	                response.data === null ?
+	                null
+	                : this.setState({
+	                	test : response.data, 
+	                	listed :  <Listing list= {this.state.test} fn={this.handleCheckedTest} bilan={this.state.Bilan}/> 
+	                }) 
+
 	            })
 	           .catch(function (error) {
 	                console.log(error);
@@ -160,7 +171,7 @@ class Index extends Component {
 
 		for(let i=0; i<panel.length; i++){
 
-			if (test == panel[i]){
+			if (test == panel[i].name){
 
 				 panel.splice(i, 1); panelNum -=1;
 
@@ -226,11 +237,19 @@ const isCheckedTest = (bilan, test)=>{
 
 	for(let i = 0; i<bilan.length; i++){
 
-		if(test == bilan[i]) checked = true;
+		if(test == bilan[i].name) checked = true;
 	}
 
 	return checked;
 }
 
+const getTotalBilan = (array)=>{
+
+	let total = 0;
+
+	array.forEach(arr =>{ total += Number(arr.bcode) })
+
+	return total;
+}
 
 module.exports = ReactDOM.render(<Index />, document.getElementById('MedApp'));

@@ -28,6 +28,26 @@ exports.autoCompleteSearchTest = (req, res, next)=>{
 	        })
     	});
 	},
+exports.searchTestFrench  = (req, res, next)=>{
+
+    var tst = req.query.test;
+
+    test.searchTestsByNameFr(tst, function (data) {
+
+        var nameMnemonicFinance = [];
+
+        data.forEach(test => {
+
+            nameMnemonicFinance.push({
+                nameFr : test.name.fr,
+                bcode : typeof test.finance[0] !== 'undefined' ? test.finance[0].Bcode : '',
+                mnemonic : test.reference.Mnemonic
+            })            
+        })
+
+        res.send(nameMnemonicFinance)
+    })
+},
 exports.testTable = (req,res, next)=> {
 
 	    Tests.find().exec(function (e, result) {
@@ -43,7 +63,7 @@ exports.testTable = (req,res, next)=> {
 	            res.send(data);
 	        })
 	    });
-	},
+},
 
 exports.editTest = {
 
